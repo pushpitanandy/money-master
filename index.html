@@ -36,7 +36,7 @@
                             <p class="text-end">Income:</p>
                         </div>
                         <div class="col-9">
-                            <input type="text">
+                            <input id="income-input" type="text">
                         </div>
                     </div>
                     <!-- Expense -->
@@ -47,7 +47,7 @@
                             <p class="text-end">Food:</p>
                         </div>
                         <div class="col-9">
-                            <input type="text">
+                            <input id="food-input" type="text">
                         </div>
                     </div>
                     <!-- rent input area -->
@@ -56,7 +56,7 @@
                             <p class="text-end">Rent:</p>
                         </div>
                         <div class="col-9">
-                            <input type="text">
+                            <input id="rent-input" type="text">
                         </div>
                     </div>
                     <!-- clothes input area -->
@@ -65,20 +65,21 @@
                             <p class="text-end">Clothes:</p>
                         </div>
                         <div class="col-9">
-                            <input type="text">
+                            <input id="clothes-input" type="text">
                         </div>
                     </div>
                     <!-- calculate button -->
                     <div class="row justify-content-center mx-5">
-                        <button class="text-white fw-bold bg-primary px-5 py-2 m-4 rounded-3">Calculate</button>
+                        <button id="calculate-button"
+                            class="text-white fw-bold bg-primary px-5 py-2 m-4 rounded-3">Calculate</button>
                     </div>
 
                     <div class="row justify-content-center mx-5">
-                        <p>Total Expenses: <span>00</span></p>
+                        <p>Total Expenses: <span id="total-expense">00</span></p>
                     </div>
 
                     <div class="row justify-content-center mx-5">
-                        <p>Balance: <span>00</span></p>
+                        <p>Balance: <span id="balance">00</span></p>
                     </div>
 
                     <!-- saving section -->
@@ -87,21 +88,22 @@
                             <p class="text-end">Save:</p>
                         </div>
                         <div class="col-9">
-                            <input type="text">
+                            <input id="save-input" type="text">
                             <span>%</span>
                         </div>
                     </div>
                     <!-- save button -->
                     <div class="row justify-content-center mx-5">
-                        <button class="text-white fw-bold bg-primary px-5 py-2 m-4 rounded-3">Save</button>
+                        <button id="save-button"
+                            class="text-white fw-bold bg-primary px-5 py-2 m-4 rounded-3">Save</button>
                     </div>
 
                     <div class="row justify-content-center mx-5">
-                        <p>Saving Amount: <span>00</span></p>
+                        <p>Saving Amount: <span id="saving-amount">00</span></p>
                     </div>
 
                     <div class="row justify-content-center mx-5">
-                        <p>Remaining Balance: <span>00</span></p>
+                        <p>Remaining Balance: <span id="remaining-balance">00</span></p>
                     </div>
                 </div>
             </div>
@@ -112,6 +114,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+    <!-- JavaScript File -->
+    <script src="js/calculate.js"></script>
 </body>
 
 </html>
