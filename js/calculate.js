@@ -56,12 +56,28 @@ document.getElementById('save-button').addEventListener('click', function () {
     const percentageSaving = getInputValue('save-input');
     const userIncome = getInputValue('income-input');
 
-    //calculating and setting saving amount
-    let saving = (userIncome / 100) * percentageSaving;
-    document.getElementById('saving-amount').innerText = saving;
+    //condition for checking strings and negative numbers in the input fields 
+    if ((percentageSaving > 0 && userIncome > 0) && (isNaN(percentageSaving) == false && isNaN(userIncome) == false)) {
 
-    //calculating and setting remaining balance
-    let currentBalance = parseFloat(document.getElementById('balance').innerText);
-    const remainingBalance = currentBalance - saving;
-    document.getElementById('remaining-balance').innerText = remainingBalance;
-})
+        //calculating and setting saving amount
+        let saving = (userIncome / 100) * percentageSaving;
+        document.getElementById('saving-amount').innerText = saving;
+
+        //calculating and setting remaining balance
+        let currentBalance = parseFloat(document.getElementById('balance').innerText);
+
+        //checking if saving is less than current balance
+        if (saving < currentBalance) {
+            const remainingBalance = currentBalance - saving;
+            document.getElementById('remaining-balance').innerText = remainingBalance;
+        }
+        else {
+            alert('save-btn-placeholder', 'You cannot save more than your current balance');
+            document.getElementById('remaining-balance').innerText = '00';
+        }
+    }
+    else {
+        alert('save-btn-placeholder', 'Please provide a valid number');
+    }
+
+});
