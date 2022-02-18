@@ -12,7 +12,7 @@ function alert(placeId, message) {
 
     //create a message 
     var wrapper = document.createElement('div')
-    wrapper.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+    wrapper.innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
 
     //append to the place
     alertPlaceholder.append(wrapper)
@@ -33,9 +33,16 @@ document.getElementById('calculate-button').addEventListener('click', function (
         const totalExpense = foodExpense + rentExpense + clothesExpense;
         document.getElementById('total-expense').innerText = totalExpense;
 
-        //calculating balance
-        const balance = userIncome - totalExpense;
-        document.getElementById('balance').innerText = balance;
+        //checking if total expense is less than income
+        if (totalExpense < userIncome) {
+            //calculating balance
+            const balance = userIncome - totalExpense;
+            document.getElementById('balance').innerText = balance;
+        }
+        else {
+            alert('calculate-btn-placeholder', 'Your expense is more than your income');
+            document.getElementById('balance').innerText = '00';
+        }
     }
     else {
         alert('calculate-btn-placeholder', 'Please provide a valid number');
