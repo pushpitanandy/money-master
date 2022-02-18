@@ -6,6 +6,7 @@ function getInputValue(inputId) {
 }
 // calculate button event handler
 document.getElementById('calculate-button').addEventListener('click', function () {
+
     //getting the values from input fields
     const userIncome = getInputValue('income-input');
     const foodExpense = getInputValue('food-input');
@@ -20,3 +21,20 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const balance = userIncome - totalExpense;
     document.getElementById('balance').innerText = balance;
 });
+
+//save button event handler
+document.getElementById('save-button').addEventListener('click', function () {
+
+    //getting values from input fields
+    const percentageSaving = getInputValue('save-input');
+    const userIncome = getInputValue('income-input');
+
+    //calculating and setting saving amount
+    let saving = (userIncome / 100) * percentageSaving;
+    document.getElementById('saving-amount').innerText = saving;
+
+    //calculating and setting remaining balance
+    let currentBalance = parseFloat(document.getElementById('balance').innerText);
+    const remainingBalance = currentBalance - saving;
+    document.getElementById('remaining-balance').innerText = remainingBalance;
+})
